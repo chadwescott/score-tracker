@@ -1,4 +1,5 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -19,7 +20,6 @@ describe('AppComponent', () => {
   it(`should have as title 'score-tracker'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('score-tracker');
   });
 
   it('should render title', () => {
