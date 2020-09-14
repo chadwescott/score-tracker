@@ -1,0 +1,15 @@
+<h2>Game Setup</h2>
+<ng-container *ngIf="game.minTeams != game.maxTeams">
+    <mat-form-field>
+        <mat-label>Number of Teams</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let teamOption of teamOptions">{{teamOption}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-container>
+<ng-container *ngIf="game.minPlayersPerTeam != game.maxPlayersPerTeam">
+    <mat-select>
+        <mat-list-option *ngFor="let playerOption of playerOptions"></mat-list-option>
+    </mat-select>
+</ng-container>
+<st-team-form [game]="game"></st-team-form>
