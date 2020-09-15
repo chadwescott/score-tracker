@@ -1,2 +1,11 @@
-<st-toolbar></st-toolbar>
-<router-outlet></router-outlet>
+<div class="container">
+    <header>
+        <st-toolbar></st-toolbar>
+    </header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    <footer>
+        <button mat-raised-button color="primary" (click)="toggleDarkMode()">Toggle Dark Mode</button>
+    </footer>
+</div>

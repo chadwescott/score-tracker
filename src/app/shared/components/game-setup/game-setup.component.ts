@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Game } from '../../models/game';
+import { Team } from '../../models/team';
 
 @Component({
   selector: 'st-game-setup',
@@ -14,20 +15,16 @@ export class GameSetupComponent implements OnInit {
   @Output()
   gameReady = new EventEmitter<Game>();
 
-  playerOptions: number[];
-  teamOptions: number[];
-
   constructor() { }
 
   ngOnInit(): void {
-    this.teamOptions = [];
-    for (let i = this.game.minTeams; i <= this.game.maxTeams; i++) {
-      this.teamOptions.push(i);
-    }
+  }
 
-    this.playerOptions = [];
-    for (let i = this.game.minPlayersPerTeam; i <= this.game.maxPlayersPerTeam; i++) {
-      this.playerOptions.push(i);
-    }
+  addTeam(): void {
+    this.game.addTeam();
+  }
+
+  removeTeam(team: Team): void {
+    this.game.removeTeam(team);
   }
 }

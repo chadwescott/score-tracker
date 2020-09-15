@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { GameSetupComponent } from './components/game-setup/game-setup.component';
 import { PlayerFormComponent } from './components/player-form/player-form.component';
@@ -15,6 +16,7 @@ import { SharedMaterialModule } from './shared-material.module';
     TeamFormComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     SharedMaterialModule
   ],

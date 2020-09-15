@@ -1,15 +1,37 @@
 <h2>Game Setup</h2>
-<ng-container *ngIf="game.minTeams != game.maxTeams">
+<st-team-form *ngFor="let team of game.teams; let i = index" [game]="game" [team]="team" [teamNumber]="i + 1"
+    (removeTeam)="removeTeam($event)">
+</st-team-form>
+<button *ngIf="game?.teams?.length < game.maxTeams" mat-raised-button color="primary" (click)="addTeam()">
+    <mat-icon>add</mat-icon>Add Team
+</button>
+
+<!-- <ng-container *ngIf="game.minTeams != game.maxTeams">
     <mat-form-field>
-        <mat-label>Number of Teams</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let teamOption of teamOptions">{{teamOption}}</mat-option>
+        <mat-label *ngIf="game.minPlayersPerTeam != 1 && game.maxPlayersPerTeam != 1">Number of Teams</mat-label>
+        <mat-label *ngIf="game.minPlayersPerTeam === 1 && game.maxPlayersPerTeam === 1">Number of Players</mat-label>
+        <mat-select [(ngModel)]="game.teamCount">
+            <mat-option *ngFor="let teamOption of teamOptions" [value]="teamOption">
+                {{teamOption}}
+            </mat-option>
         </mat-select>
     </mat-form-field>
 </ng-container>
+
+<ng-container *ngIf="game.teamCount">
+    <ng-container *ngIf="game.minPlayersPerTeam === game.maxPlayersPerTeam">
+
+    </ng-container>
+
+    <div>Team Count: {{ game.teamCount }}</div>
+</ng-container>
+
 <ng-container *ngIf="game.minPlayersPerTeam != game.maxPlayersPerTeam">
-    <mat-select>
-        <mat-list-option *ngFor="let playerOption of playerOptions"></mat-list-option>
+    <mat-select [(ngModel)]="game.playersPerTeam">
+        <mat-option *ngFor="let playerOption of playerOptions" [value]="playerOption">
+            {{playerOption}}
+        </mat-option>
     </mat-select>
 </ng-container>
-<st-team-form [game]="game"></st-team-form>
+
+<div>Players per team: {{ game.playersPerTeam }}</div> -->

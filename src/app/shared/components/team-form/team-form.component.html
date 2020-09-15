@@ -1,1 +1,22 @@
-<p>team-form works!</p>
+<form>
+    <h2>Team {{teamNumber}}
+        <button *ngIf="game?.teams?.length > game.minTeams" mat-raised-button color="primary"
+            (click)="removeTeam.emit(team)">
+            <mat-icon>remove</mat-icon>Remove Team
+        </button>
+    </h2>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Players</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <ng-container *ngFor="let player of team.players; let i = index">
+                <st-player-form [player]="player"></st-player-form>
+
+            </ng-container>
+            <button *ngIf="team.players?.length < game.maxPlayersPerTeam" mat-icon-button (click)="addPlayer()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </mat-card-content>
+    </mat-card>
+</form>

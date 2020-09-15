@@ -1,11 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material/theming';
+@include theming.mat-core();
 @import './theme.scss';
+
+* {
+    box-sizing: border-box;
+}
 
 html,
 body {
     height: 100%;
 }
+
 body {
     margin: 0;
     font-family: Roboto, 'Helvetica Neue', sans-serif;
+    color: black;
+    background-color: white;
+}
+
+.dark-mode {
+    @include theming.angular-material-theme($dark-theme);
+    color: white;
+    background-color: black;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 3rem;
+}
+
+main {
+    margin: 0 2rem;
 }
